@@ -1,9 +1,6 @@
 from flask import Flask, jsonify, request, render_template
 import json
 
-f = open('./data/data.json')
-data = json.load(f)
-
 app = Flask(__name__)
 @app.route("/")
 def homepage():
