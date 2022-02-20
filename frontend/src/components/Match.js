@@ -23,6 +23,16 @@ import './Match.module.css';
 
 let tests = JSON.parse(localStorage.getItem("recipients"));
 
+let search = window.location.search;
+let params = new URLSearchParams(search);
+let foo = params.get('assign');
+console.log(tests, foo)
+
+if(tests && foo){
+  tests.shift();
+  localStorage.setItem("recipients",JSON.stringify(tests));
+  window.location.href="http://localhost:3000/matches"
+}
 
 function jsonMap(obj) {
   let result = {};

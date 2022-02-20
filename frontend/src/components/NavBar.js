@@ -24,9 +24,9 @@ export default function NavBar(){
                     {authenticated ? <li></li>: <li><Link to='/signup'> SignUp </Link></li>}
 
                     {authenticated ? <li><Link to='/register'> Become Recipient </Link></li> : <li></li>}
-                    {authenticated ? <li><Link to='/donor'> Become Donor </Link></li> : <li></li>}
+                    {/* {authenticated ? <li><Link to='/donor'> Become Donor </Link></li> : <li></li>} */}
 
-                    {/* {authenticated ? <li><a target="_blank" href="http://localhost:3001/">Become Donor</a></li> : <li></li>} */}
+                    {authenticated ? <li><a target="_blank" href="http://localhost:3001/">Become Donor</a></li> : <li></li>}
                     
 
                     {authenticated ? <li><Link to='/matches'> Recipient Waitlist</Link></li> : <li></li>}
