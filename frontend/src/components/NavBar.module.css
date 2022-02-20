@@ -8,7 +8,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(250 74 75);
     box-shadow: 0px 4px 4px 0px #00000040;
 }
 
@@ -26,5 +26,5 @@
 }
 
 .header ul li a:hover {
-    color: rgb(255, 0, 0);
+    color: White;
 }

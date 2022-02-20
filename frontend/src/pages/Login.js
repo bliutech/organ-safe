@@ -4,9 +4,15 @@ export default function Login(){
     document.title = 'Login | OrganSafe';
     return(
         <div className='content'>
-            <h1> Login </h1>
-            <p> Login to your account! </p>
-            <LoginMod />
+            <div className='content-left'>
+                <h1> Login </h1>
+                <div style={{display:"flex",justifyContent:"space-around"}}>
+                    <LoginMod />
+                </div>
+            </div>
+            <div className='content-right'>
+                <img src="join-us.jpeg"/>
+            </div>
         </div>
     );
 }

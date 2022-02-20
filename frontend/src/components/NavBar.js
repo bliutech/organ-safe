@@ -9,10 +9,11 @@ export default function NavBar(){
             <h1 className={classes.logo}> </h1>
             <nav>
                 <ul>
-                    <li><Link to='/'> Home </Link></li>
+                    <li><Link style={{padding:"0px"}} to='/'><img style={{ width:"3vw", height:"auto"}} src="s-logo.png" /> </Link></li>
                     <li><Link to='/login'> Login </Link></li>
-                    <li><Link to='/register'> Register </Link></li>
-                    <li><Link to='/donor'> Donate </Link></li>
+                    <li><Link to='/signup'> SignUp </Link></li>
+                    <li><Link to='/register'> Become Recipient </Link></li>
+                    <li><Link to='/donor'> Become Donor </Link></li>
                 </ul>
             </nav>
         </header>

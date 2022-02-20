@@ -2,7 +2,7 @@ import { useState } from 'react';
 import {Link} from "react-router-dom";
 import './Form.module.css';
 
-export default function RegisterMod() {
+export default function SignUpMod() {
     let [boolCheck, setBoolCheck] = useState(false);
 
     let [user, setUser] = useState('');
@@ -37,19 +37,11 @@ export default function RegisterMod() {
                     <td><input type='text' value={name} onChange={(e) => setName(e.target.value)} placeholder='Name' /></td>
                 </tr>
                 <tr>
-                    <td><p>Age</p></td>
-                    <td><input type='int' value={age} onChange={(e) => setAge(e.target.value)} placeholder='Age' /></td>
-                </tr>
-                <tr>
-                    <td><p>Organ Type</p></td>
-                    <td><input type='text' value={organType} onChange={(e) => setorganType(e.target.value)} placeholder='Organ Type' /></td>
-                </tr>
-                <tr>
-                    <td><p>Blood Type</p></td>
-                    <td><input type='text' value={bloodType} onChange={(e) => setbloodType(e.target.value)} placeholder='Blood Type' /></td>
-                </tr>
-                <tr>
                     <td><p>Password</p></td>
+                    <td><input type='text' value={pass} onChange={(e) => setPass(e.target.value)} placeholder='Passsword' /></td>
+                </tr> 
+                <tr>
+                    <td><p> Confirm Password</p></td>
                     <td><input type='text' value={pass} onChange={(e) => setPass(e.target.value)} placeholder='Passsword' /></td>
                 </tr> 
             </table>

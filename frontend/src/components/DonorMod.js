@@ -25,8 +25,8 @@ export default function Register() {
                     <th>{/* Fields */}</th>
                 </tr>
                 <tr>
-                    <td><p>Hospital Name</p></td>
-                    <td><input type='text' value={hospital} onChange={(e) => setHospital(e.target.value)} placeholder='Name' /></td>
+                    <td><p>Donor Name</p></td>
+                    <td><input type='text' value={hospital} onChange={(e) => setHospital(e.target.value)} placeholder='Donor Name' /></td>
                 </tr>
                 <tr>
                     <td><p>Organ Type</p></td>

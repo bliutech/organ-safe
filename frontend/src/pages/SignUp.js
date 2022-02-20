@@ -1,14 +1,15 @@
-import RegisterMod from '../components/RegisterMod.js'
+import SignUpMod from '../components/SignUpMod';
+import RegisterMod from '../components/SignUpMod'
 
-export default function Register(){
-    document.title = 'Register | OrganSafe';
+export default function SignUp(){
+    document.title = 'SignUp | OrganSafe';
     
     return(
         <div className='content'>
         <div className='content-left'>
-            <h1> Become Recipient </h1>
+            <h1> SignUp </h1>
             <div style={{display:"flex",justifyContent:"space-around"}}>
-            <RegisterMod />
+            <SignUpMod />
             </div>
         </div>
         <div className='content-right'>

@@ -26,16 +26,16 @@ export default function LoginMod() {
                     <th>{/* Fields */}</th>
                 </tr>
                 <tr>
-                    <td><p>Username</p></td>
+                    <td style={{ padding: "0px 20px"}}><p>Username</p></td>
                     <td><input type='text' value={user} onChange={(e) => setUser(e.target.value)} placeholder='Username' /></td>
                 </tr>
                 <tr>
-                    <td><p>Password</p></td>
+                    <td style={{ padding: "0px 20px"}}><p>Password</p></td>
                     <td><input type='text' value={pass} onChange={(e) => setPass(e.target.value)} placeholder='Passsword' /></td>
                 </tr>
             </table>
             <Link to={(boolCheck ? '/' : '/login')}>
-                <button type='submit'
+                <button style={{marginTop:"2vh", display: "block"}} type='submit'
                     onClick={
                         () => {
                             (async () => {

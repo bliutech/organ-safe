@@ -5,9 +5,15 @@ export default function Donor(){
     document.title = 'Donors | OrganSafe';
     return(
         <div className='content'>
-            <h1> Donate </h1>
-            <p> Donate a new organ here! </p>
+        <div className='content-left'>
+            <h1> Become a Donor </h1>
+            <div style={{display:"flex",justifyContent:"space-around"}}>
             <DonorMod />
+            </div>
+        </div>
+        <div className='content-right'>
+            <img src="donate.jpeg"/>
+        </div>
         </div>
     );
 }
