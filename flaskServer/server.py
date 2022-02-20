@@ -1,10 +1,11 @@
 from flask import Flask, jsonify, request, render_template
-import json
+import os
 
-app = Flask(__name__)
+from sympy import public
+app = Flask(__name__, template_folder='../frontend/public')
 @app.route("/")
 def homepage():
-    return jsonify({"about": "<h1>welcome to OrganSafe!</h1>"})
+    return render_template('index.html')
 # register API Route
 @app.route("/register")
 def register():
