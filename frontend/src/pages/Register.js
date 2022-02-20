@@ -4,7 +4,7 @@ export default function Register(){
     document.title = 'Register | OrganSafe';
     
     return(
-        <div>
+        <div className='content'>
             <h1> Register </h1>
             <p> Register an account to get matched for an organ donation! </p>
             <RegisterMod />

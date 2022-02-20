@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {Link} from "react-router-dom";
+import './Form.module.css';
 
 export default function Register() {
     let [boolCheck, setBoolCheck] = useState(false);
@@ -18,7 +19,7 @@ export default function Register() {
 
     return (
         <div>
-            <table>
+            <table className='table'>
                 <tr>
                     <th>{/* Text */}</th>
                     <th>{/* Fields */}</th>
