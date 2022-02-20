@@ -4,6 +4,7 @@ import backend from '../components/Util.js';
 
 export default function Matches(){
     let [matches, setMatches] = useState([]);
+    let isAdmin = true;
     document.title = 'Matches | OrganSafe';
 
     async function getMatches() {
@@ -58,6 +59,8 @@ export default function Matches(){
         <div>
             <h1> Matches </h1>
             <p> Here are the available donors that matched your requirements. </p>
+            <p>Waiting #: </p>
+            {/*waiting numer*/}
             <table>
                 <tr>
                     {/* make this fixed later on */}
@@ -66,6 +69,7 @@ export default function Matches(){
                     <th> Hospital </th>
                     <th> Recipient </th>
                     <th> Priority </th>
+                    {isAdmin ? <th> Assign </th>: <th/>}
                 </tr>
                 <Match results={matches}/>
             </table>

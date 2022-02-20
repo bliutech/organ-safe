@@ -10,6 +10,7 @@ export default function Match(props) {
               <td>{person.hospital}</td>
               <td>{person.recipient}</td>
               <td>{person.priority}</td>
+              <td><button onClick={()=>alert('Assigned organ!')}> Assign </button></td>
             </tr>
           )
         }
