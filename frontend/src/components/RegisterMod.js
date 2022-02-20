@@ -11,12 +11,14 @@ export default function RegisterMod() {
     let [age, setAge] = useState('');
     let [organType, setorganType] = useState('');
     let [bloodType, setbloodType] = useState('');
+    let [severity, setSeverity] = useState('');
+    let [urgency, setUrgency] = useState('');
 
     async function submit(){
-        if(user !== '' && pass !== '' && name !== '' && age  !== '' && organType !== '' && bloodType !== '')
+        if(user !== '' && pass !== '' && name !== '' && age  !== '' && organType !== '' && bloodType !== '' && severity !=='' && urgency !=='')
         {
             setBoolCheck(true);
-            console.log('username: ' + user + ' password: ' + pass + 'name: ' + name + " age: " + age +  " organType: " + organType + " bloodType: " + bloodType);
+            console.log('username: ' + user + ' password: ' + pass + 'name: ' + name + " age: " + age +  " organType: " + organType + " bloodType: " + bloodType + " severity " + String(severity) + " urgency: " + String(urgency));
             alert('Submitted Donation');
         }
     }
@@ -38,7 +40,7 @@ export default function RegisterMod() {
                 </tr>
                 <tr>
                     <td><p>Age</p></td>
-                    <td><input type='int' value={age} onChange={(e) => setAge(e.target.value)} placeholder='Age' /></td>
+                    <td><input type='number' min='1' value={age} onChange={(e) => setAge(e.target.value)} placeholder='Age' /></td>
                 </tr>
                 <tr>
                     <td><p>Organ Type</p></td>
@@ -49,11 +51,20 @@ export default function RegisterMod() {
                     <td><input type='text' value={bloodType} onChange={(e) => setbloodType(e.target.value)} placeholder='Blood Type' /></td>
                 </tr>
                 <tr>
+                    <td><p>Severity</p></td>
+                    <td><input type='number' min='0' max='10' value={severity} onChange={(e) => setSeverity(e.target.value)} placeholder='0-10' /></td>
+                </tr>
+                <tr>
+                    <td><p>Urgency</p></td>
+                    <td><input type='number' min='0' max='10' value={urgency} onChange={(e) => setUrgency(e.target.value)} placeholder='0-10' /></td>
+                </tr>
+                
+                <tr>
                     <td><p>Password</p></td>
                     <td><input type='text' value={pass} onChange={(e) => setPass(e.target.value)} placeholder='Passsword' /></td>
                 </tr> 
             </table>
-            <Link to={(boolCheck ? '/' : '/register')}>
+            <Link to={(boolCheck ? '/matches' : '/register')}>
                 <button type='submit'
                     onClick={
                         () => {

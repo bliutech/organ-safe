@@ -34,7 +34,7 @@ export default function LoginMod() {
                     <td><input type='text' value={pass} onChange={(e) => setPass(e.target.value)} placeholder='Passsword' /></td>
                 </tr>
             </table>
-            <Link to={(boolCheck ? '/' : '/login')}>
+            <Link to={(boolCheck ? '/register' : '/login')}>
                 <button style={{marginTop:"2vh", display: "block"}} type='submit'
                     onClick={
                         () => {

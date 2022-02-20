@@ -7,17 +7,19 @@ export default function SignUpMod() {
 
     let [user, setUser] = useState('');
     let [pass, setPass] = useState('');
+    let [passCheck, setPassCheck] = useState('');
     let [name, setName] = useState('');
-    let [age, setAge] = useState('');
-    let [organType, setorganType] = useState('');
-    let [bloodType, setbloodType] = useState('');
 
     async function submit(){
-        if(user !== '' && pass !== '' && name !== '' && age  !== '' && organType !== '' && bloodType !== '')
+        if(pass !== passCheck)
+        {
+            alert('Passwords do not match!');
+        }
+        if(user !== '' && pass !== '' && name !== '' && pass === passCheck)
         {
             setBoolCheck(true);
-            console.log('username: ' + user + ' password: ' + pass + 'name: ' + name + " age: " + age +  " organType: " + organType + " bloodType: " + bloodType);
-            alert('Submitted Donation');
+            console.log('username: ' + user + ' password: ' + pass + 'name: ' + name);
+            alert('Registered account!');
         }
     }
 
@@ -42,10 +44,10 @@ export default function SignUpMod() {
                 </tr> 
                 <tr>
                     <td><p> Confirm Password</p></td>
-                    <td><input type='text' value={pass} onChange={(e) => setPass(e.target.value)} placeholder='Passsword' /></td>
+                    <td><input type='text' value={passCheck} onChange={(e) => setPassCheck(e.target.value)} placeholder='Passsword' /></td>
                 </tr> 
             </table>
-            <Link to={(boolCheck ? '/' : '/register')}>
+            <Link to={(boolCheck ? '/login' : '/signup')}>
                 <button type='submit'
                     onClick={
                         () => {

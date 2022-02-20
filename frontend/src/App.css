@@ -1,13 +1,7 @@
-/* .content
-{
-  margin-top: 50vh;
-  margin-right: 30%;
-  margin-left: 30%;
-} */
-
 .content{
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 20%;
 }
 
 .content-right{
@@ -16,9 +10,11 @@
   justify-content: center;
   width: 45%;
   height: 100vh;
+  margin-top: 40px;
 }
 
 .content-right img{
+  display: flex;
   height: 80%;
 }
 
@@ -27,7 +23,7 @@
   flex-direction: column;
   width: 45%;
   width: 40%;
-  margin-top: 20vh;
+  margin-top: 70px;
   height: 40vh;
   
 }

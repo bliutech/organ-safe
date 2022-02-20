@@ -6,4 +6,8 @@ button
 {
     text-align: center;
     margin: auto;
+    display:block;
+}
+a {
+    text-decoration: none;
 }
