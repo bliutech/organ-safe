@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/organ-safe/static/css/main.c11d4a9a.css",
+    "main.js": "/organ-safe/static/js/main.9fa8c695.js",
+    "static/media/organ.jpeg": "/organ-safe/static/media/organ.ac8888ad070ad78ba0e1.jpeg",
+    "index.html": "/organ-safe/index.html",
+    "main.c11d4a9a.css.map": "/organ-safe/static/css/main.c11d4a9a.css.map",
+    "main.9fa8c695.js.map": "/organ-safe/static/js/main.9fa8c695.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c11d4a9a.css",
+    "static/js/main.9fa8c695.js"
+  ]
+}
