@@ -1,8 +1,16 @@
+import Match from '../components/Match.js';
+// import backend from '../components/Util.js';
+
 export default function Matches(){
+    document.title = 'Matches | OrganSafe';
+
     return(
-        <div>
+        <div className='content'>
             <h1> Matches </h1>
-            <p> A secure organ matching website supported by blockchain technology! </p>
+            <p> Here are the available donors that matched your requirements. </p>
+            {/*<p>Waiting #: </p>*/}
+            {/*waiting numer*/}
+            <Match />
         </div>
     );
 }
