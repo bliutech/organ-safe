@@ -1,4 +1,6 @@
 export default function Register(){
+    document.title = 'Register | OrganSafe';
+    
     return(
         <div>
             <h1> Register </h1>
