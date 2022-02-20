@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {Link} from "react-router-dom";
 
-export default function DonorMod() {
+export default function Register() {
     let [boolCheck, setBoolCheck] = useState(false);
     let [hospital, setHospital] = useState('');
     let [organType, setorganType] = useState('');
@@ -11,6 +11,7 @@ export default function DonorMod() {
         if(hospital !== '' && organType !== '' && bloodType !== '')
         {
             setBoolCheck(true);
+            console.log('hospital: ' + hospital + " organType: " + organType + " bloodType: " + bloodType);
             alert('Submitted Donation');
         }
     }

@@ -7,6 +7,7 @@ export default function Register(){
         <div>
             <h1> Register </h1>
             <p> Register an account to get matched for an organ donation! </p>
+            <RegisterMod />
         </div>
     );
 }
