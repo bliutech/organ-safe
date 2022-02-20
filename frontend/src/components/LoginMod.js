@@ -11,9 +11,8 @@ export default function LoginMod() {
     let [pass, setPass] = useState('');
     
     async function login(){
-        if (user == username && pass == password) {
+        if (user === username && pass === password) {
             setBoolCheck(true);
-            alert('Correct Password!');
             return;
         }
     }
@@ -30,11 +29,11 @@ export default function LoginMod() {
                     <td><input type='text' value={user} onChange={(e) => setUser(e.target.value)} placeholder='Username' /></td>
                 </tr>
                 <tr>
-                    <td><p>Username</p></td>
+                    <td><p>Password</p></td>
                     <td><input type='text' value={pass} onChange={(e) => setPass(e.target.value)} placeholder='Passsword' /></td>
                 </tr>
             </table>
-            <Link to={(boolCheck ? '/matches' : '/login')}>
+            <Link to={(boolCheck ? '/' : '/login')}>
                 <button type='submit'
                     onClick={
                         () => {

@@ -1,6 +1,6 @@
 import React,{ useState } from 'react';
 import Match from '../components/Match.js';
-import backend from '../components/Util.js';
+// import backend from '../components/Util.js';
 
 export default function Matches(){
     let [matches, setMatches] = useState([]);

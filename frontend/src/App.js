@@ -1,4 +1,5 @@
 import './App.css';
+import {useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home.js';
 import Login from './pages/Login.js';
@@ -9,6 +10,9 @@ import Donor from './pages/Donor.js';
 import NavBar from './components/NavBar.js';
 
 function App() {
+  let [isAdmin, setisAdmin] = useState(false);
+  let [isLoggedIn, setisLoggedin] = useState(false);
+
   return (
     <div>
       <BrowserRouter>
