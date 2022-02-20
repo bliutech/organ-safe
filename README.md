@@ -2,7 +2,7 @@
 
 ![OrganSafe Logo](./frontend/src/files/organsafe-logo.svg)
 
-OrganSafe is a revolutionary web application that tackles the growing health & security problem of black marketing of donated organs. The verification of organ recipients leverages the Ethereum Blockchain to provide critical security and prevent improper allocation for such a pivotal resource. Users can also register on OrganSafe with their health information and desired donation and then application's algorithms will automatically match the users based on qualifying priority for available donations. Hospitals can easily track donations of organs and easily record when recipients recieve their donation.
+OrganSafe is a revolutionary web application that tackles the growing health & security problem of black marketing of donated organs. The verification of organ recipients leverages the Ethereum Blockchain to provide critical security and prevent improper allocation for such a pivotal resource. Users can also register on OrganSafe with their health information and desired donation and then application's algorithms will automatically match the users based on qualifying priority for available donations. Hospitals can easily track donations of organs and easily record when recipients receive their donation.
 
 Developed for [TreeHacks 2022](https://www.treehacks.com/).
 
