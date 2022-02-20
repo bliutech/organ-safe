@@ -1,9 +1,9 @@
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 // import backend from '../components/Util.js';
 
 let tests = [
   {
-    key: "key",
+    key: "key1",
     hospital: "test",
     organType: "heart",
     bloodType: "B+",
@@ -11,7 +11,7 @@ let tests = [
     priority: 1
   },
   {
-    key: "key",
+    key: "key2",
     hospital: "test",
     organType: "heart",
     bloodType: "B+",
@@ -20,104 +20,106 @@ let tests = [
   }
 ]
 
-function jsonMap(obj)
-{
+function jsonMap(obj) {
   let result = {};
-  for(var key in obj) {
+  for (var key in obj) {
     result[key] = obj[key];
   }
   return result;
 }
 
-function MatchMod(results) {
+function MatchMod({ results }) {
   console.log(results);
-  return (
-    results.forEach(
+  return (<>{
+    results.map(
       entry => {
         let person = jsonMap(entry);
         console.log(person)
         console.log(person.organType)
-        return(
-          <tr>
+        return (
+          <tr key={person.key}>
             <td>{person.organType}</td>
             <td>{person.bloodType}</td>
             <td>{person.hospital}</td>
             <td>{person.recipient}</td>
             <td>{person.priority}</td>
-            <td><button onClick={()=>alert('Assigned organ!')}> Assign </button></td>
+            <td><button onClick={() => alert('Assigned organ!')}> Assign </button></td>
           </tr>
         );
       }
     )
+  }
+  </>
   );
 }
 
-export default function Matches(){
-    let [matches, setMatches] = useState([]);
-    let isAdmin = true;
-    document.title = 'Matches | OrganSafe';
+export default function Matches() {
+  let [matches, setMatches] = useState([]);
+  let isAdmin = true;
+  document.title = 'Matches | OrganSafe';
 
-    /*async function handleSubmit(uname, pass) {
-        const data = {
-            username: uname,
-            password: pass
-        }
-        const res = await fetch(backend("/matches"), {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        });
-    }*/
-    async function getMatches() {
-        let resultsTemp = [];
+  /*async function handleSubmit(uname, pass) {
+      const data = {
+          username: uname,
+          password: pass
+      }
+      const res = await fetch(backend("/matches"), {
+          method: "POST",
+          headers: {
+          "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+      });
+  }*/
+  async function getMatches() {
+    let resultsTemp = [];
 
-        let dbSnapshot = [];
-        dbSnapshot.forEach(
-            user =>{
-                resultsTemp.push(
-                    {
-                        key: user.key,
-                        hospital: user.hospital,
-                        organType: user.organType,
-                        bloodType: user.bloodType,
-                        recipient: user.recipient,
-                        priority: user.priority
-                    }
-                ); 
-            }
+    let dbSnapshot = [];
+    dbSnapshot.forEach(
+      user => {
+        resultsTemp.push(
+          {
+            key: user.key,
+            hospital: user.hospital,
+            organType: user.organType,
+            bloodType: user.bloodType,
+            recipient: user.recipient,
+            priority: user.priority
+          }
         );
-        console.log(resultsTemp);
-        return resultsTemp;
-    }
-
-    /*(async () => {
-        const resultsTemp = await getMatches();
-        setMatches(resultsTemp);
-    })();*/
-    
-
-    return(
-        <div>
-            {/*<p>Waiting #: </p>*/}
-            {/*waiting numer*/}
-            <table>
-              <thead>
-                <tr>
-                  {/* make this fixed later on */}
-                  <th> Organ Type </th>
-                  <th> Blood Type </th>
-                  <th> Hospital </th>
-                  <th> Recipient </th>
-                  <th> Priority </th>
-                  {isAdmin ? (<th> Assign </th>): <th/>}
-                </tr>
-              </thead>
-              <tbody>
-                {MatchMod(tests)}
-              </tbody>
-            </table>
-        </div>
+      }
     );
+    console.log(resultsTemp);
+    return resultsTemp;
+  }
+
+  /*(async () => {
+      const resultsTemp = await getMatches();
+      setMatches(resultsTemp);
+  })();*/
+
+
+  return (
+    <div>
+      {/*<p>Waiting #: </p>*/}
+      {/*waiting numer*/}
+      <table>
+        <thead>
+          <tr>
+            {/* make this fixed later on */}
+            <th> Organ Type </th>
+            <th> Blood Type </th>
+            <th> Hospital </th>
+            <th> Recipient </th>
+            <th> Priority </th>
+            {isAdmin ? (<th> Assign </th>) : <th />}
+          </tr>
+        </thead>
+        <tbody>
+          {/*()=>MatchMod(tests)*/}
+          <MatchMod results={tests} />
+        </tbody>
+      </table>
+    </div>
+  );
 }

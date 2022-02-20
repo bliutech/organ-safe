@@ -1,4 +1,5 @@
 import DonorMod from '../components/DonorMod.js';
+import '../App.css';
 
 export default function Donor(){
     document.title = 'Donors | OrganSafe';
