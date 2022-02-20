@@ -4,7 +4,7 @@ import classes from './NavBar.module.css';
 function logout(){
     console.log("Logout called");
     localStorage.removeItem("authenticated");
-    window.location.href = "http://localhost:3000/";
+    window.location.href = "https://organ-safe.bliu.tech/";
 }
 
 export default function NavBar(){

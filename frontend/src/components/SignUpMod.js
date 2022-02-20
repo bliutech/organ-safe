@@ -16,7 +16,7 @@ export default function SignUpMod() {
             setBoolCheck(true);
             localStorage.setItem(user,pass);
             localStorage.setItem("authenticated","true");
-            window.location.href = "http://localhost:3000/";
+            window.location.href = "https://organ-safe.bliu.tech/";
             return;
         }
     }
