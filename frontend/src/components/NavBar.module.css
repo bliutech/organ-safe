@@ -28,3 +28,11 @@
 .header ul li a:hover {
     color: White;
 }
+
+.Logout-button:hover{
+    color: white;
+}
+
+.header ul li button:hover {
+    color: White;
+}

@@ -5,9 +5,9 @@ export default function Matches(){
     document.title = 'Matches | OrganSafe';
 
     return(
-        <div className='content'>
-            <h1> Matches </h1>
-            <p> Here are the available donors that matched your requirements. </p>
+        <div className='recipient-waiting-list'>
+            <h1> Recipient Waiting List </h1>
+            {/* <p> Here are the available donors that matched your requirements. </p> */}
             {/*<p>Waiting #: </p>*/}
             {/*waiting numer*/}
             <Match />

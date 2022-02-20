@@ -11,15 +11,13 @@ export default function SignUpMod() {
     let [name, setName] = useState('');
 
     async function submit(){
-        if(pass !== passCheck)
-        {
-            alert('Passwords do not match!');
-        }
-        if(user !== '' && pass !== '' && name !== '' && pass === passCheck)
+        if(user !== '' && pass !== '' && name !== '')
         {
             setBoolCheck(true);
-            console.log('username: ' + user + ' password: ' + pass + 'name: ' + name);
-            alert('Registered account!');
+            localStorage.setItem(user,pass);
+            localStorage.setItem("authenticated","true");
+            window.location.href = "http://localhost:3000/";
+            return;
         }
     }
 
@@ -31,7 +29,7 @@ export default function SignUpMod() {
                     <th>{/* Fields */}</th>
                 </tr>
                 <tr>
-                    <td><p>Username</p></td>
+                    <td><p>Email</p></td>
                     <td><input type='text' value={user} onChange={(e) => setUser(e.target.value)} placeholder='Username' /></td>
                 </tr>
                 <tr>
@@ -42,12 +40,8 @@ export default function SignUpMod() {
                     <td><p>Password</p></td>
                     <td><input type='text' value={pass} onChange={(e) => setPass(e.target.value)} placeholder='Passsword' /></td>
                 </tr> 
-                <tr>
-                    <td><p> Confirm Password</p></td>
-                    <td><input type='text' value={passCheck} onChange={(e) => setPassCheck(e.target.value)} placeholder='Passsword' /></td>
-                </tr> 
             </table>
-            <Link to={(boolCheck ? '/login' : '/signup')}>
+            <Link to={(boolCheck ? '/' : '/')}>
                 <button type='submit'
                     onClick={
                         () => {

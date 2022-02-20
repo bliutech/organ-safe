@@ -14,6 +14,8 @@ function App() {
   let [isAdmin, setisAdmin] = useState(false);
   let [isLoggedIn, setisLoggedin] = useState(false);
 
+  let authenticated = localStorage.getItem("authenticated");
+
   return (
     <div>
       <BrowserRouter>

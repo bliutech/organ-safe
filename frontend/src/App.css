@@ -4,6 +4,14 @@
   margin-bottom: 20%;
 }
 
+.recipient-waiting-list{
+    flex-direction: column;
+    width: 55vw;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 20vh;
+}
+
 .content-right{
   display: flex;
   flex-direction: column;

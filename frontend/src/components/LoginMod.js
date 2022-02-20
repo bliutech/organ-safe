@@ -3,8 +3,8 @@ import {Link} from "react-router-dom";
 import './Form.module.css';
 
 export default function LoginMod() {
-    const username = "username";
-    const password = "password123";
+    // const username = "username";
+    // const password = "password123";
 
     let [boolCheck, setBoolCheck] = useState(false);
 
@@ -12,8 +12,10 @@ export default function LoginMod() {
     let [pass, setPass] = useState('');
     
     async function login(){
-        if (user === username && pass === password) {
+        if (localStorage.getItem(user)) {
             setBoolCheck(true);
+            localStorage.setItem("authenticated","true");
+            window.location.href = "http://localhost:3000/";
             return;
         }
     }
@@ -34,7 +36,7 @@ export default function LoginMod() {
                     <td><input type='text' value={pass} onChange={(e) => setPass(e.target.value)} placeholder='Passsword' /></td>
                 </tr>
             </table>
-            <Link to={(boolCheck ? '/register' : '/login')}>
+            <Link to={(boolCheck ? '/' :'/login')}>
                 <button style={{marginTop:"2vh", display: "block"}} type='submit'
                     onClick={
                         () => {

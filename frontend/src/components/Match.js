@@ -2,24 +2,27 @@ import React, { useState } from 'react';
 import './Match.module.css';
 // import backend from '../components/Util.js';
 
-let tests = [
-  {
-    key: "key1",
-    hospital: "test",
-    organType: "heart",
-    bloodType: "B+",
-    recipient: "personA",
-    priority: 1
-  },
-  {
-    key: "key2",
-    hospital: "test",
-    organType: "heart",
-    bloodType: "B+",
-    recipient: "personA",
-    priority: 1
-  }
-]
+// let tests = [
+//   {
+//     key: "key1",
+//     hospital: "test",
+//     organType: "heart",
+//     bloodType: "B+",
+//     recipient: "personA",
+//     priority: 1
+//   },
+//   {
+//     key: "key2",
+//     hospital: "test",
+//     organType: "heart",
+//     bloodType: "B+",
+//     recipient: "personA",
+//     priority: 1
+//   }
+// ]
+
+let tests = JSON.parse(localStorage.getItem("recipients"));
+
 
 function jsonMap(obj) {
   let result = {};
@@ -30,21 +33,20 @@ function jsonMap(obj) {
 }
 
 function MatchMod({ results }) {
-  console.log(results);
   return (<>{
     results.map(
       entry => {
         let person = jsonMap(entry);
-        console.log(person)
-        console.log(person.organType)
         return (
-          <tr key={person.key}>
-            <td>{person.organType}</td>
-            <td>{person.bloodType}</td>
-            <td>{person.hospital}</td>
-            <td>{person.recipient}</td>
-            <td>{person.priority}</td>
-            <td><button onClick={() => alert('Assigned organ!')}> Assign </button></td>
+          <tr key={person.name + person.score + person.age}>
+            <td style={{textAlign:"Center"}}>{person.name}</td>
+            <td style={{textAlign:"Center"}}>{person.age}</td>
+            <td style={{textAlign:"Center"}}>{person.organ}</td>
+            <td style={{textAlign:"Center"}}>{person.blood}</td>
+            <td style={{textAlign:"Center"}}>{person.severity}</td>
+            <td style={{textAlign:"Center"}}>{person.urgency}</td>
+            <td style={{textAlign:"Center"}}>{person.score}</td>
+            <td style={{textAlign:"Center"}}><button onClick={() => alert('Assigned organ!')}> Assign </button></td>
           </tr>
         );
       }
@@ -53,6 +55,26 @@ function MatchMod({ results }) {
   </>
   );
 }
+
+// function MatchMod({ results }) {
+//   return(<>{
+//     tests.forEach(person => {
+//       return(
+//         <tr>
+//           <td>{person[0]}</td>
+//           <td>{person[1]}</td>
+//           <td>{person[2]}</td>
+//           <td>{person[3]}</td>
+//           <td>{person[4]}</td>
+//           <td>{person[5]}</td>
+//           <td><button onClick={() => alert('Assigned organ!')}> Assign </button></td>
+//         </tr>
+//       )
+//     })
+//   }
+//   </>
+//   );
+// }
 
 export default function Matches() {
   let [matches, setMatches] = useState([]);
@@ -72,27 +94,27 @@ export default function Matches() {
           body: JSON.stringify(data)
       });
   }*/
-  async function getMatches() {
-    let resultsTemp = [];
+  // async function getMatches() {
+  //   let resultsTemp = [];
 
-    let dbSnapshot = [];
-    dbSnapshot.forEach(
-      user => {
-        resultsTemp.push(
-          {
-            key: user.key,
-            hospital: user.hospital,
-            organType: user.organType,
-            bloodType: user.bloodType,
-            recipient: user.recipient,
-            priority: user.priority
-          }
-        );
-      }
-    );
-    console.log(resultsTemp);
-    return resultsTemp;
-  }
+  //   let dbSnapshot = [];
+  //   dbSnapshot.forEach(
+  //     user => {
+  //       resultsTemp.push(
+  //         {
+  //           key: user.key,
+  //           hospital: user.hospital,
+  //           organType: user.organType,
+  //           bloodType: user.bloodType,
+  //           recipient: user.recipient,
+  //           priority: user.priority
+  //         }
+  //       );
+  //     }
+  //   );
+  //   console.log(resultsTemp);
+  //   return resultsTemp;
+  // }
 
   /*(async () => {
       const resultsTemp = await getMatches();
@@ -108,11 +130,13 @@ export default function Matches() {
         <thead>
           <tr>
             {/* make this fixed later on */}
-            <th> Organ Type </th>
-            <th> Blood Type </th>
-            <th> Hospital </th>
-            <th> Recipient </th>
-            <th> Priority </th>
+            <th> Recipient Name </th>
+            <th> Age </th>
+            <th> Organ type </th>
+            <th> Blood Group </th>
+            <th> Severity </th>
+            <th> Urgency </th>
+            <th> Score </th>
             {isAdmin ? (<th> Assign </th>) : <th />}
           </tr>
         </thead>

@@ -5,8 +5,6 @@ import './Form.module.css';
 export default function RegisterMod() {
     let [boolCheck, setBoolCheck] = useState(false);
 
-    let [user, setUser] = useState('');
-    let [pass, setPass] = useState('');
     let [name, setName] = useState('');
     let [age, setAge] = useState('');
     let [organType, setorganType] = useState('');
@@ -15,11 +13,20 @@ export default function RegisterMod() {
     let [urgency, setUrgency] = useState('');
 
     async function submit(){
-        if(user !== '' && pass !== '' && name !== '' && age  !== '' && organType !== '' && bloodType !== '' && severity !=='' && urgency !=='')
+        if(name !== '' && age  !== '' && organType !== '' && bloodType !== '' && severity !=='' && urgency !=='')
         {
             setBoolCheck(true);
-            console.log('username: ' + user + ' password: ' + pass + 'name: ' + name + " age: " + age +  " organType: " + organType + " bloodType: " + bloodType + " severity " + String(severity) + " urgency: " + String(urgency));
-            alert('Submitted Donation');
+            let existing_recipients = JSON.parse(localStorage.getItem("recipients"));
+            if(!existing_recipients){
+                existing_recipients=[]
+                localStorage.setItem("recipients",JSON.stringify(existing_recipients));
+            }
+            let score = 2*parseInt(age) + 3*parseInt(severity) + 4*parseInt(urgency);
+            let recipient={'name':name,'age':age,'organ':organType,'blood':bloodType,'severity':severity,'urgency':urgency,'score':score};
+            existing_recipients.push(recipient);
+            existing_recipients.sort((a,b) => (a.score < b.score) ? 1:-1);
+            localStorage.setItem("recipients",JSON.stringify(existing_recipients));
+            return;
         }
     }
 
@@ -29,10 +36,6 @@ export default function RegisterMod() {
                 <tr>
                     <th>{/* Text */}</th>
                     <th>{/* Fields */}</th>
-                </tr>
-                <tr>
-                    <td><p>Username</p></td>
-                    <td><input type='text' value={user} onChange={(e) => setUser(e.target.value)} placeholder='Username' /></td>
                 </tr>
                 <tr>
                     <td><p>Name</p></td>
@@ -58,11 +61,7 @@ export default function RegisterMod() {
                     <td><p>Urgency</p></td>
                     <td><input type='number' min='0' max='10' value={urgency} onChange={(e) => setUrgency(e.target.value)} placeholder='0-10' /></td>
                 </tr>
-                
-                <tr>
-                    <td><p>Password</p></td>
-                    <td><input type='text' value={pass} onChange={(e) => setPass(e.target.value)} placeholder='Passsword' /></td>
-                </tr> 
+
             </table>
             <Link to={(boolCheck ? '/matches' : '/register')}>
                 <button type='submit'
